@@ -1,11 +1,19 @@
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Sun, Moon } from "lucide-react";
+import { useTheme } from "next-themes";
+import { Button } from "./ui/button";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
   const location = useLocation();
+  const { theme, setTheme } = useTheme();
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const navItems = [
     { name: "Home", path: "/" },
@@ -16,7 +24,7 @@ const Navbar = () => {
   return (
     <nav className="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-xl border-b border-border">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between h-20"> {/* Increased height */}
+        <div className="flex justify-between h-20">
           <div className="flex items-center">
             <div className="relative group">
               <div className="absolute inset-0 bg-primary/20 rounded-full blur-md group-hover:bg-primary/30 transition-colors"></div>
@@ -31,7 +39,7 @@ const Navbar = () => {
             </span>
           </div>
 
-          {/* Desktop Navigation */}
+          {/* Desktop Navigation with Theme Toggle */}
           <div className="hidden md:flex items-center space-x-8">
             {navItems.map((item) => (
               <Link
@@ -46,10 +54,37 @@ const Navbar = () => {
                 {item.name}
               </Link>
             ))}
+            {mounted && (
+              <Button
+                variant="ghost"
+                size="icon"
+                onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+                className="ml-4"
+              >
+                {theme === "dark" ? (
+                  <Sun className="h-5 w-5 text-yellow-500 transition-all" />
+                ) : (
+                  <Moon className="h-5 w-5 text-blue-500 transition-all" />
+                )}
+              </Button>
+            )}
           </div>
 
           {/* Mobile Navigation */}
-          <div className="md:hidden flex items-center">
+          <div className="md:hidden flex items-center space-x-4">
+            {mounted && (
+              <Button
+                variant="ghost"
+                size="icon"
+                onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+              >
+                {theme === "dark" ? (
+                  <Sun className="h-5 w-5 text-yellow-500 transition-all" />
+                ) : (
+                  <Moon className="h-5 w-5 text-blue-500 transition-all" />
+                )}
+              </Button>
+            )}
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="text-foreground hover:text-primary transition-colors"
