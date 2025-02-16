@@ -11,42 +11,42 @@
     --card-foreground: 222 47% 11%;
     --popover: 0 0% 100%;
     --popover-foreground: 222 47% 11%;
-    --primary: 245 58% 51%;
+    --primary: 224 76% 48%;
     --primary-foreground: 210 20% 98%;
     --secondary: 220 14.3% 95.9%;
     --secondary-foreground: 222 47% 11%;
     --muted: 220 14.3% 95.9%;
     --muted-foreground: 220 8.9% 46.1%;
-    --accent: 245 58% 51%;
+    --accent: 224 76% 48%;
     --accent-foreground: 222 47% 11%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 20% 98%;
     --border: 220 13% 91%;
     --input: 220 13% 91%;
-    --ring: 245 58% 51%;
+    --ring: 224 76% 48%;
     --radius: 0.75rem;
   }
 
   .dark {
-    --background: 222 47% 11%;
+    --background: 224 71% 4%;
     --foreground: 210 40% 98%;
-    --card: 222 47% 11%;
+    --card: 224 71% 4%;
     --card-foreground: 210 40% 98%;
-    --popover: 222 47% 11%;
+    --popover: 224 71% 4%;
     --popover-foreground: 210 40% 98%;
-    --primary: 245 58% 51%;
+    --primary: 217 91% 60%;
     --primary-foreground: 210 40% 98%;
     --secondary: 217 19% 27%;
     --secondary-foreground: 210 40% 98%;
     --muted: 217 19% 27%;
     --muted-foreground: 215 20.2% 65.1%;
-    --accent: 245 58% 51%;
+    --accent: 217 91% 60%;
     --accent-foreground: 210 40% 98%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
     --border: 217 19% 27%;
     --input: 217 19% 27%;
-    --ring: 245 58% 51%;
+    --ring: 217 91% 60%;
   }
 
   * {
@@ -75,8 +75,8 @@
   .dark body::before {
     background: linear-gradient(
       to bottom,
-      rgba(17, 24, 39, 0.97) 0%,
-      rgba(17, 24, 39, 0.95) 100%
+      rgba(10, 10, 20, 0.97) 0%,
+      rgba(10, 10, 20, 0.95) 100%
     );
   }
 
@@ -89,7 +89,11 @@
   }
 
   .glass {
-    @apply bg-background/20 backdrop-blur-xl border border-border/50 shadow-lg;
+    @apply bg-background/30 backdrop-blur-xl border border-border/50 shadow-lg;
+  }
+
+  .dark .glass {
+    @apply bg-background/40 border-white/10;
   }
 
   .title-animation {
@@ -142,8 +146,12 @@
   }
 
   .gradient-text {
-    @apply bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent font-semibold;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    @apply bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent font-bold;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  }
+
+  .dark .gradient-text {
+    text-shadow: 0 2px 12px rgba(255, 255, 255, 0.2);
   }
 
   .page-background {
