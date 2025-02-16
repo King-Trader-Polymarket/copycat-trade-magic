@@ -156,9 +156,9 @@
   }
 
   .dark .gradient-text {
-    @apply bg-gradient-to-r from-blue-400 via-primary to-blue-400;
-    text-shadow: 0 2px 12px rgba(59, 130, 246, 0.4),
-                 0 4px 24px rgba(59, 130, 246, 0.2);
+    @apply bg-gradient-to-r from-white via-blue-300 to-white;
+    text-shadow: 0 2px 12px rgba(255, 255, 255, 0.4),
+                 0 4px 24px rgba(147, 197, 253, 0.3);
   }
 
   .page-background {
