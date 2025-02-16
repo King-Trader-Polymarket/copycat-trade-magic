@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { PlayCircle, StopCircle } from "lucide-react";
+import { PlayCircle, StopCircle, Upload } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
 const Home = () => {
@@ -35,10 +35,34 @@ const Home = () => {
     });
   };
 
+  const handleFileUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        try {
+          const content = e.target?.result as string;
+          console.log("Env file content:", content);
+          toast({
+            title: "File Uploaded",
+            description: ".env file has been imported successfully.",
+          });
+        } catch (error) {
+          toast({
+            title: "Error",
+            description: "Failed to read the .env file.",
+            variant: "destructive",
+          });
+        }
+      };
+      reader.readAsText(file);
+    }
+  };
+
   return (
-    <div className="min-h-screen pt-16 pb-8">
+    <div className="min-h-screen pt-24 pb-8"> {/* Increased padding-top */}
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
+        <div className="text-center mb-16"> {/* Increased margin-bottom */}
           <h1 className="text-4xl font-bold gradient-text title-animation mb-4">
             Polymarket Copy Trading Bot
           </h1>
@@ -49,6 +73,28 @@ const Home = () => {
 
         <div className="glass p-8 mb-8">
           <div className="space-y-6">
+            <div className="flex justify-end mb-4">
+              <div className="relative">
+                <input
+                  type="file"
+                  accept=".env"
+                  onChange={handleFileUpload}
+                  className="hidden"
+                  id="env-file"
+                />
+                <label htmlFor="env-file">
+                  <Button
+                    variant="outline"
+                    className="ping-animation"
+                    onClick={() => document.getElementById("env-file")?.click()}
+                  >
+                    <Upload className="mr-2 h-4 w-4" />
+                    Import .env
+                  </Button>
+                </label>
+              </div>
+            </div>
+
             <div>
               <label className="block text-sm font-medium mb-2">Top Trader</label>
               <Input
