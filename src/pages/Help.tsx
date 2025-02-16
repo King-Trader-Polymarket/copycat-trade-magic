@@ -32,9 +32,9 @@ const Help = () => {
   ];
 
   return (
-    <div className="min-h-screen pt-16 pb-8">
+    <div className="page-background help-background">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
+        <div className="text-center mb-16">
           <h1 className="text-4xl font-bold gradient-text title-animation mb-4">
             Help Center
           </h1>
@@ -43,22 +43,32 @@ const Help = () => {
           </p>
         </div>
 
-        <Card className="glass p-6">
+        <div className="glass p-8">
           <Accordion type="single" collapsible className="w-full">
             {faqs.map((faq, index) => (
-              <AccordionItem key={index} value={`item-${index}`}>
-                <AccordionTrigger className="text-left">
+              <AccordionItem 
+                key={index} 
+                value={`item-${index}`}
+                className="border-b border-white/10 last:border-b-0"
+              >
+                <AccordionTrigger className="text-left hover:text-primary">
                   {faq.question}
                 </AccordionTrigger>
-                <AccordionContent>{faq.answer}</AccordionContent>
+                <AccordionContent className="text-muted-foreground">
+                  {faq.answer}
+                </AccordionContent>
               </AccordionItem>
             ))}
           </Accordion>
-        </Card>
+        </div>
 
-        <div className="mt-12 text-center">
-          <p className="text-muted-foreground">
-            Still have questions? Contact us through our social media channels.
+        <div className="mt-16 glass p-8">
+          <h2 className="text-2xl font-semibold gradient-text mb-6 text-center">
+            Still Need Help?
+          </h2>
+          <p className="text-muted-foreground text-center">
+            Our support team is available 24/7 to assist you with any questions or concerns.
+            Reach out to us through any of our social media channels or email support.
           </p>
         </div>
       </div>

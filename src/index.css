@@ -5,25 +5,25 @@
 
 @layer base {
   :root {
-    --background: 0 0% 3.9%;
-    --foreground: 0 0% 98%;
-    --card: 0 0% 3.9%;
-    --card-foreground: 0 0% 98%;
-    --popover: 0 0% 3.9%;
-    --popover-foreground: 0 0% 98%;
-    --primary: 47 95% 50%;
-    --primary-foreground: 0 0% 0%;
-    --secondary: 0 0% 9%;
-    --secondary-foreground: 0 0% 98%;
-    --muted: 0 0% 14.9%;
-    --muted-foreground: 0 0% 63.9%;
-    --accent: 0 0% 14.9%;
-    --accent-foreground: 0 0% 98%;
+    --background: 217 58% 11%;
+    --foreground: 210 40% 98%;
+    --card: 217 58% 11%;
+    --card-foreground: 210 40% 98%;
+    --popover: 217 58% 11%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 217 91% 60%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 47 95% 50%;
+    --secondary-foreground: 0 0% 0%;
+    --muted: 217 58% 15%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217 58% 15%;
+    --accent-foreground: 210 40% 98%;
     --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 14.9%;
-    --input: 0 0% 14.9%;
-    --ring: 47 95% 50%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217 58% 15%;
+    --input: 217 58% 15%;
+    --ring: 217 91% 60%;
     --radius: 0.75rem;
   }
 
@@ -33,11 +33,31 @@
 
   body {
     @apply bg-background text-foreground antialiased;
-    font-feature-settings: "rlig" 1, "calt" 1;
+    background-image: url('/lovable-uploads/21b4ed4b-5558-4fcd-8289-8f742b19be3b.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.7) 0%,
+      rgba(0, 0, 0, 0.5) 100%
+    );
+    z-index: -1;
   }
 
   .glass {
-    @apply bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl;
+    @apply bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
   }
 
   .title-animation {
@@ -90,6 +110,31 @@
   }
 
   .gradient-text {
-    @apply bg-gradient-to-r from-primary via-primary/80 to-primary/60 bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent;
+  }
+
+  .page-background {
+    @apply min-h-screen pt-24 pb-8 relative;
+  }
+
+  .page-background::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-size: cover;
+    background-position: center;
+    opacity: 0.15;
+    z-index: -1;
+  }
+
+  .about-background::before {
+    background-image: url('/lovable-uploads/c5d8c834-4b04-46ca-a5a8-688554521748.png');
+  }
+
+  .help-background::before {
+    background-image: url('/lovable-uploads/5566ee69-8e5a-476c-bc77-beb6a3ba003a.png');
   }
 }
