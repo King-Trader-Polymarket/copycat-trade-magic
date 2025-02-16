@@ -1,4 +1,3 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -28,24 +27,24 @@
   }
 
   .dark {
-    --background: 224 71% 4%;
+    --background: 224 71% 8%;
     --foreground: 210 40% 98%;
-    --card: 224 71% 4%;
+    --card: 224 71% 8%;
     --card-foreground: 210 40% 98%;
-    --popover: 224 71% 4%;
+    --popover: 224 71% 8%;
     --popover-foreground: 210 40% 98%;
     --primary: 217 91% 60%;
     --primary-foreground: 210 40% 98%;
-    --secondary: 217 19% 27%;
+    --secondary: 217 19% 32%;
     --secondary-foreground: 210 40% 98%;
-    --muted: 217 19% 27%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 217 19% 32%;
+    --muted-foreground: 215 20.2% 75.1%;
     --accent: 217 91% 60%;
     --accent-foreground: 210 40% 98%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
-    --border: 217 19% 27%;
-    --input: 217 19% 27%;
+    --border: 217 19% 32%;
+    --input: 217 19% 32%;
     --ring: 217 91% 60%;
   }
 
@@ -75,8 +74,8 @@
   .dark body::before {
     background: linear-gradient(
       to bottom,
-      rgba(10, 10, 20, 0.97) 0%,
-      rgba(10, 10, 20, 0.95) 100%
+      rgba(20, 24, 40, 0.95) 0%,
+      rgba(20, 24, 40, 0.92) 100%
     );
   }
 
@@ -93,7 +92,8 @@
   }
 
   .dark .glass {
-    @apply bg-background/40 border-white/10;
+    @apply bg-background/50 border-white/10 shadow-lg;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
   }
 
   .title-animation {
@@ -151,7 +151,8 @@
   }
 
   .dark .gradient-text {
-    text-shadow: 0 2px 12px rgba(255, 255, 255, 0.2);
+    @apply bg-gradient-to-r from-blue-400 via-primary to-blue-400;
+    text-shadow: 0 2px 12px rgba(59, 130, 246, 0.3);
   }
 
   .page-background {
