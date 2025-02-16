@@ -16,14 +16,17 @@ const Navbar = () => {
   return (
     <nav className="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-xl border-b border-border">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between h-16">
+        <div className="flex justify-between h-20"> {/* Increased height */}
           <div className="flex items-center">
-            <img
-              src="/lovable-uploads/4496935e-7237-4bf7-972e-3e23739ca307.png"
-              alt="Logo"
-              className="h-8 w-auto"
-            />
-            <span className="ml-2 text-xl font-semibold gradient-text">
+            <div className="relative group">
+              <div className="absolute inset-0 bg-primary/20 rounded-full blur-md group-hover:bg-primary/30 transition-colors"></div>
+              <img
+                src="/lovable-uploads/4496935e-7237-4bf7-972e-3e23739ca307.png"
+                alt="Logo"
+                className="h-12 w-12 rounded-full object-cover relative transition-transform duration-300 group-hover:scale-105"
+              />
+            </div>
+            <span className="ml-4 text-xl font-semibold gradient-text">
               Polymarket Copy Trading
             </span>
           </div>
